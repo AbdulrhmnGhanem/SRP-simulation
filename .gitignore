@@ -1,0 +1,4 @@
+# project config
+.idea
+# python virtual environment
+.venv
