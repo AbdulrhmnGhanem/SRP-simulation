@@ -1,6 +1,5 @@
 import unittest
 from itertools import product
-from collections import Counter
 
 from game import referee, Game
 
@@ -24,14 +23,15 @@ class MyTestCase(unittest.TestCase):
         play appeared only once, player1 will win 3 times, player2
         will win 3 times and they will tie three times.
         """
-        counter = Counter({'player1': 0, 'player2': 0, 'tie': 0})
+        counter = {'player1': 0, 'player2': 0, 'tie': 0}
         choices = ['scissor', 'paper', 'rock']
         all_possible_games = product(choices, repeat=2)
 
         for game in all_possible_games:
             result = referee(Game(*game))
             counter[result] += 1
-        self.assertEqual({'player1': 3, 'player2': 3, 'tie': 3}, dict(counter))
+
+        self.assertEqual({'player1': 3, 'player2': 3, 'tie': 3}, counter)
 
 
 if __name__ == '__main__':
