@@ -52,7 +52,7 @@ class TestReferee(unittest.TestCase):
         all_possible_games = product(choices, repeat=2)
 
         for game in all_possible_games:
-            result = referee(Round(*game))
+            result = self.referee(Round(*game))
             counter[result] += 1
 
         self.assertEqual({'player1': 3, 'player2': 3, 'tie': 3}, counter)
